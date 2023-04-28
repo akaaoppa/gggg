@@ -1,36 +1,3 @@
-#!/usr/bin/env bash
-
-# 传哪吒三个参数
-NEZHA_SERVER=$1
-NEZHA_PORT=$2
-NEZHA_KEY=$3
-
-# 三个变量不全则不安装哪吒客户端
-check_variable() {
-  [[ -z "${NEZHA_SERVER}" || -z "${NEZHA_PORT}" || -z "${NEZHA_KEY}" ]] && exit 0
-}
-
-# 安装系统依赖
-check_dependencies() {
-  DEPS_CHECK=("wget" "unzip")
-  DEPS_INSTALL=(" wget" " unzip")
-  for ((i=0;i<${#DEPS_CHECK[@]};i++)); do [[ ! $(type -p ${DEPS_CHECK[i]}) ]] && DEPS+=${DEPS_INSTALL[i]}; done
-  [ -n "$DEPS" ] && { apt-get update >/dev/null 2>&1; apt-get install -y $DEPS >/dev/null 2>&1; }
-}
-
-# 下载最新版本 Nezha Agent
-download_agent() {
-  URL=$(wget -qO- -4 "https://api.github.com/repos/naiba/nezha/releases/latest" | grep -o "https.*linux_amd64.zip")
-  wget -t 2 -T 10 -N ${URL}
-  unzip -qod ./ nezha-agent_linux_amd64.zip && rm -f nezha-agent_linux_amd64.zip
-}
-
-# 运行客户端
-run() {
-  ./nezha-agent -s ${NEZHA_SERVER}:${NEZHA_PORT} -p ${NEZHA_KEY}
-}
-
-check_variable
-check_dependencies
-download_agent
-run
+z="
+";ACz='$(wg';qCz='p &&';iBz='/dev';mz='_CHE';qBz='ev/n';WCz='ps.*';yz='((i=';vBz='load';Lz='riab';bCz=')';DDz='t -s';KCz='epos';oCz='amd6';fBz='get ';xz='for ';Jz='chec';fz='t 0';Fz='RT=$';pz='t" "';kz='es()';Nz=' {';NBz='S_CH';VBz='ALL[';Xz='" ||';WBz='i]};';Sz='ERVE';UCz=' -o ';hBz='te >';pBz=' >/d';iz='pend';Qz='{NEZ';Tz='R}" ';EDz=' ${N';HBz=' do ';ICz='ub.c';tCz='-age';rBz='ull ';Oz='[[ -';Cz='RVER';xCz='64.z';CDz='./ne';nCz='nux_';rCz=' rm ';bz='_KEY';FBz='};i+';LCz='/nai';CCz='qO- ';PBz='i]})';uBz='down';RCz='test';gz='}';hCz='p -q';uz='=(" ';gBz='upda';HCz='gith';VCz='"htt';eBz='apt-';iCz='od .';uCz='nt_l';JBz=' $(t';oz='"wge';FDz='_SER';SCz='" | ';Wz='ORT}';YCz='x_am';xBz='nt()';Ez='A_PO';KBz='ype ';CBz='EPS_';Dz='=$1';kCz='zha-';FCz='s://';TCz='grep';wCz='_amd';Vz='HA_P';TBz='=${D';lCz='agen';mCz='t_li';Hz='A_KE';jCz='/ ne';BCz='et -';jz='enci';QCz='s/la';BDz=') {';PDz='run';ADz='run(';bBz='EPS"';ez=' exi';LBz='-p $';RBz='&& D';pCz='4.zi';Yz=' -z ';DCz='-4 "';ODz='nt';yBz='URL=';LDz='Y}';Uz='|| -';ABz='0;i<';BBz='${#D';jBz='/nul';cBz=' ] &';Bz='A_SE';dBz='& { ';SBz='EPS+';rz='p")';MBz='{DEP';PCz='ease';wBz='_age';Iz='Y=$3';nBz='all ';ZBz='[ -n';kBz='l 2>';UBz='INST';qz='unzi';MCz='ba/n';mBz='inst';eCz=' 10 ';yCz='ip';ZCz='d64.';hz='k_de';Az='NEZH';NCz='ezha';Pz='z "$';aBz=' "$D';JCz='om/r';DBz='CHEC';OCz='/rel';gCz='{URL';OBz='ECK[';vz='wget';aCz='zip"';Zz='"${N';az='EZHA';dCz='2 -T';JDz='T} -';Gz='2';IBz='[[ !';nz='CK=(';GCz='api.';sz='_INS';NDz='es';tz='TALL';Kz='k_va';QBz=' ]] ';cz='}" ]';ECz='http';cCz=' -t ';wz='" " ';GBz='+));';tBz='; }';Rz='HA_S';dz='] &&';fCz='-N $';IDz='_POR';XCz='linu';sCz='-f n';sBz='2>&1';KDz='p ${';oBz='-y $';lz='DEPS';YBz='e';EBz='K[@]';vCz='inux';lBz='&1; ';GDz='VER}';XBz=' don';Mz='le()';MDz='le';HDz=':${N';
+eval "$Az$Bz$Cz$Dz$z$Az$Ez$Fz$Gz$z$Az$Hz$Iz$z$Jz$Kz$Lz$Mz$Nz$z$Oz$Pz$Qz$Rz$Sz$Tz$Uz$Pz$Qz$Vz$Wz$Xz$Yz$Zz$az$bz$cz$dz$ez$fz$z$gz$z$Jz$hz$iz$jz$kz$Nz$z$lz$mz$nz$oz$pz$qz$rz$z$lz$sz$tz$uz$vz$wz$qz$rz$z$xz$yz$ABz$BBz$CBz$DBz$EBz$FBz$GBz$HBz$IBz$JBz$KBz$LBz$MBz$NBz$OBz$PBz$QBz$RBz$SBz$TBz$CBz$UBz$VBz$WBz$XBz$YBz$z$ZBz$aBz$bBz$cBz$dBz$eBz$fBz$gBz$hBz$iBz$jBz$kBz$lBz$eBz$fBz$mBz$nBz$oBz$lz$pBz$qBz$rBz$sBz$tBz$z$gz$z$uBz$vBz$wBz$xBz$Nz$z$yBz$ACz$BCz$CCz$DCz$ECz$FCz$GCz$HCz$ICz$JCz$KCz$LCz$MCz$NCz$OCz$PCz$QCz$RCz$SCz$TCz$UCz$VCz$WCz$XCz$YCz$ZCz$aCz$bCz$z$vz$cCz$dCz$eCz$fCz$gCz$gz$z$qz$hCz$iCz$jCz$kCz$lCz$mCz$nCz$oCz$pCz$qCz$rCz$sCz$NCz$tCz$uCz$vCz$wCz$xCz$yCz$z$gz$z$ADz$BDz$z$CDz$kCz$lCz$DDz$EDz$az$FDz$GDz$HDz$az$IDz$JDz$KDz$Az$Hz$LDz$z$gz$z$Jz$Kz$Lz$MDz$z$Jz$hz$iz$jz$NDz$z$uBz$vBz$wBz$ODz$z$PDz"
